@@ -3,11 +3,11 @@ package ru.diolloyd;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.MobileElement;
@@ -21,14 +21,12 @@ public class AndroidNativeDemoAppTests {
     private MobileDriver driver;
 
     @SneakyThrows
-    @BeforeEach
+    @BeforeMethod
     public void setupDriver() {
         capabilities.setCapability("appium:deviceName", "Pixel");
         capabilities.setCapability("appium:udid", "emulator-5554");
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("appium:platformVersion", "11");
-//        capabilities.setCapability("appium:appPackage", "com.google.android.apps.maps");
-//        capabilities.setCapability("appium:appActivity", "com.google.android.maps.MapsActivity");
         capabilities.setCapability("appium:noReset", true);
         capabilities.setCapability("appium:automationName", "UIAutomator2");
         capabilities.setCapability("appium:app", System.getenv("Android-NativeDemoApp"));
@@ -38,7 +36,7 @@ public class AndroidNativeDemoAppTests {
     }
 
 
-    @AfterEach
+    @AfterMethod
     public void close() {
         driver.quit();
     }
@@ -93,7 +91,5 @@ public class AndroidNativeDemoAppTests {
         MobileElement successful = (MobileElement) driver.findElementById("android:id/message");
         Assert.assertEquals(successful.getText(), expectedErrorText);
     }
-
-
 
 }

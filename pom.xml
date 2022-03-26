@@ -15,7 +15,6 @@
         <java-client.version>7.6.0</java-client.version>
         <testng.version>7.4.0</testng.version>
 
-        <junit-jupiter-api.version>5.8.2</junit-jupiter-api.version>
         <lombok.version>1.18.22</lombok.version>
     </properties>
 
@@ -32,12 +31,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit-jupiter-api.version}</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
