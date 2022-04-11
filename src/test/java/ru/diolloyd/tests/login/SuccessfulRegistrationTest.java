@@ -1,4 +1,4 @@
-package ru.diolloyd;
+package ru.diolloyd.tests.login;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
