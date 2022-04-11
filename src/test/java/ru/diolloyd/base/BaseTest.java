@@ -15,6 +15,8 @@ import io.appium.java_client.MobileDriver;
 import io.appium.java_client.android.AndroidDriver;
 import ru.diolloyd.pages.MainPage;
 
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+
 public class BaseTest {
 
     private static final String url = "http://127.0.0.1:4723/wd/hub";
@@ -51,7 +53,7 @@ public class BaseTest {
 
     @AfterClass
     public void close() {
-        driver.quit();
+        closeWebDriver();
     }
 
 }
