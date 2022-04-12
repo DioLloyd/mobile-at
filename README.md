@@ -9,6 +9,7 @@
 
 * Для корректной работы требуется [**Node.js**](https://nodejs.org/ru/download/) и Appium `npm install -g appium`
 * Также можно воспользоваться Appium Doctor для удобства установки `npm install appium-doctor -g`
+
 Или
 * Можно воспользоваться [**Appium Desktop**](https://github.com/appium/appium-desktop/releases) (не требует Node/NPM)
 
