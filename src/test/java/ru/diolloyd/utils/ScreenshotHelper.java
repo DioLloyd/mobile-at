@@ -8,6 +8,7 @@ import io.appium.java_client.MobileBy;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import ru.diolloyd.base.BaseTest;
+import ru.diolloyd.enums.Device;
 
 import static com.codeborne.selenide.Selenide.$;
 import static org.testng.Assert.assertTrue;
@@ -27,17 +28,17 @@ public class ScreenshotHelper extends BaseTest {
     }
 
     public static void create(AddressLocator addressLocator) {
-        openPage(addressLocator);
+        openPage(addressLocator, Device.PIXEL_1);
         createScreenshot(addressLocator);
     }
 
-    private static void openPage(AddressLocator addressLocator) {
+    private static void openPage(AddressLocator addressLocator, Device device) {
         switch (addressLocator) {
             case mainPage:
-                openApp();
+                openApp(device.name);
                 break;
             case formsPage:
-                openApp().clickFormsMenuButton();
+                openApp(device.name).clickFormsMenuButton();
                 break;
         }
     }

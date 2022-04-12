@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import io.qameta.allure.Description;
 import ru.diolloyd.base.BaseTest;
+import ru.diolloyd.enums.Device;
 import ru.diolloyd.listener.AllureListener;
 
 @Listeners(AllureListener.class)
@@ -17,7 +18,7 @@ public class SuccessfulRegistrationTest extends BaseTest {
     @Test
     @Description("Проверка успешной регистрации")
     public void successfulRegistration() {
-        openApp()
+        openApp(Device.PIXEL_1.name)
                 .clickLoginMenuButton()
                 .clickSignUpTab()
                 .inputEmail(EMAIL)

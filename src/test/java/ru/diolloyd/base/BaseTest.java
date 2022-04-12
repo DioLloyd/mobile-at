@@ -22,9 +22,9 @@ public class BaseTest {
     private static final String url = "http://127.0.0.1:4723/wd/hub";
     private static MobileDriver driver;
 
-    public static MainPage openApp() {
+    public static MainPage openApp(String device) {
         try {
-            WebDriver driver = getAndroidDriver();
+            WebDriver driver = getAndroidDriver(device);
             WebDriverRunner.setWebDriver(driver);
 
         } catch (MalformedURLException e) {
@@ -34,15 +34,23 @@ public class BaseTest {
         return new MainPage();
     }
 
-    public static WebDriver getAndroidDriver() throws MalformedURLException{
+    public static WebDriver getAndroidDriver(String device) throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
+        switch (device) {
+            case "Pixel_1":
+                capabilities.setCapability("appium:udid", "emulator-5554");
+                break;
+            case "Pixel_2":
+                capabilities.setCapability("appium:udid", "emulator-5556");
+                break;
+        }
+
         capabilities.setCapability("appium:deviceName", "Pixel");
-        capabilities.setCapability("appium:udid", "emulator-5554");
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("appium:platformVersion", "11");
         capabilities.setCapability("appium:noReset", true);
         capabilities.setCapability("appium:automationName", "UIAutomator2");
-        capabilities.setCapability("appium:app", System.getenv("Android-NativeDemoApp"));
+        capabilities.setCapability("appium:app", System.getenv("Android-NativeDemoApp")); //указывается адрес до apk
 
         Configuration.reportsFolder = "screenshots/actual";
 

@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import io.qameta.allure.Description;
 import ru.diolloyd.base.BaseTest;
+import ru.diolloyd.enums.Device;
 import ru.diolloyd.listener.AllureListener;
 
 @Listeners(AllureListener.class)
@@ -15,7 +16,7 @@ public class CheckFormsPageScreenshotTest extends BaseTest {
     @Test
     @Description("Проверяем UI страницы 'Forms' с помощью скриншота")
     public void checkFormsPageScreenshot() {
-        openApp()
+        openApp(Device.PIXEL_2.name)
                 .clickFormsMenuButton()
                 .checkScreenshot(SCREENSHOT_NAME);
     }

@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import io.qameta.allure.Description;
 import ru.diolloyd.base.BaseTest;
+import ru.diolloyd.enums.Device;
 import ru.diolloyd.listener.AllureListener;
 
 /**
@@ -20,7 +21,7 @@ public class CheckFailErrorTextTest extends BaseTest {
     @Test
     @Description("Проверяем поведения теста при падении проверки сообщения об ошибке валидного email")
     public void checkFailEmptyEmail() {
-        openApp()
+        openApp(Device.PIXEL_2.name)
                 .clickLoginMenuButton()
                 .checkLoginErrorText(VALID_EMAIL_ADDRESS);
     }
