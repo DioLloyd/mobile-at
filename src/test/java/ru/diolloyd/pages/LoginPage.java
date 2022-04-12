@@ -13,50 +13,50 @@ public class LoginPage extends BottomNavigationBar {
     @Step("Кликаем по кнопке 'Login' в форме")
     public LoginPage clickLoginButton() {
         $(locator().loginButton()).click();
-        return new LoginPage();
+        return this;
     }
 
     @Step("Проверяем текст ошибки")
     public LoginPage checkLoginErrorText(String text) {
         $(locator().loginErrorText()).shouldHave(Condition.text(text));
-        return new LoginPage();
+        return this;
     }
 
     @Step("Нажимаем вкладку 'SignUp'")
     public LoginPage clickSignUpTab() {
         $(locator().signUpTab()).click();
-        return new LoginPage();
+        return this;
     }
 
     @Step("Заполняем поле 'Email'")
     public LoginPage inputEmail(String email) {
         $(locator().emailField()).setValue(email);
-        return new LoginPage();
+        return this;
     }
 
     @Step("Заполняем поле 'Password'")
     public LoginPage inputPassword(String password) {
         $(locator().passwordField()).setValue(password);
-        return new LoginPage();
+        return this;
     }
 
     @Step("Заполняем поле 'Confirm password'")
     public LoginPage inputConfirmPassword(String confirmPassword) {
         $(locator().confirmPasswordField()).setValue(confirmPassword);
-        return new LoginPage();
+        return this;
     }
 
     @Step("Нажимаем кнопку 'SignUp'")
     public LoginPage clickSignUpButton() {
         $(locator().signUpButton()).click();
-        return new LoginPage();
+        return this;
     }
 
     @SneakyThrows
     @Step("Проверяем текст успешной авторизации")
     public LoginPage checkSuccessfulSignUpText(String text) {
         $(locator().signUpAlertDialog()).shouldHave(Condition.text(text));
-        return new LoginPage();
+        return this;
     }
 
 
