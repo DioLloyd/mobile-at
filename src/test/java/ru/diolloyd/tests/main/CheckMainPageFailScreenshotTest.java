@@ -8,7 +8,7 @@ import ru.diolloyd.base.BaseTest;
 import ru.diolloyd.listener.AllureListener;
 
 @Listeners(AllureListener.class)
-public class CheckFailScreenshotTest extends BaseTest {
+public class CheckMainPageFailScreenshotTest extends BaseTest {
 
     private final String SCREENSHOT_NAME = "badMainPage.png";
 
