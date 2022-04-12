@@ -22,7 +22,7 @@ public class BaseTest {
     private static final String url = "http://127.0.0.1:4723/wd/hub";
     private static MobileDriver driver;
 
-    public MainPage openApp() {
+    public static MainPage openApp() {
         try {
             WebDriver driver = getAndroidDriver();
             WebDriverRunner.setWebDriver(driver);
