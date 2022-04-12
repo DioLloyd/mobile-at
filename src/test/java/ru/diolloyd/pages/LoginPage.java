@@ -8,18 +8,14 @@ import ru.diolloyd.locators.LoginPageLocators;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class LoginPage {
-
-    private LoginPageLocators locator() {
-        return new LoginPageLocators();
-    }
+public class LoginPage extends BottomNavigationBar {
 
     @Step("Кликаем по кнопке 'Login' в форме")
     public LoginPage clickLoginButton() {
         $(locator().loginButton()).click();
         return new LoginPage();
     }
-    
+
     @Step("Проверяем текст ошибки")
     public LoginPage checkLoginErrorText(String text) {
         $(locator().loginErrorText()).shouldHave(Condition.text(text));
@@ -64,5 +60,8 @@ public class LoginPage {
     }
 
 
+    private LoginPageLocators locator() {
+        return new LoginPageLocators();
+    }
 
 }
