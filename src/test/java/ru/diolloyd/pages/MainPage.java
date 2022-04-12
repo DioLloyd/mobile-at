@@ -14,17 +14,7 @@ import ru.diolloyd.locators.MainPageLocators;
 import static com.codeborne.selenide.Selenide.$;
 import static org.testng.Assert.assertEquals;
 
-public class MainPage {
-
-    private MainPageLocators locator() {
-        return new MainPageLocators();
-    }
-
-    @Step("Кликаем по кнопке логина в меню и переходим на новую страницу логина")
-    public LoginPage clickLoginMenuButton() {
-        $(locator().loginButton()).click();
-        return new LoginPage();
-    }
+public class MainPage extends BottomNavigationBar {
 
     @Step("Делаем скриншот главной страницы и сравниваем с требованием")
     public MainPage checkScreenshot(String fileName) {
@@ -42,6 +32,11 @@ public class MainPage {
         ImageComparisonResult imageComparisonResult = new ImageComparison(expectedImage, actualImage, resultDestination).compareImages();
         assertEquals(ImageComparisonState.MATCH, imageComparisonResult.getImageComparisonState());
         return this;
+    }
+
+
+    private MainPageLocators locator() {
+        return new MainPageLocators();
     }
 
 }
