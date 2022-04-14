@@ -18,7 +18,7 @@ public class SuccessfulRegistrationTest extends BaseTest {
     @Test
     @Description("Проверка успешной регистрации")
     public void successfulRegistration() {
-        openApp(Device.PIXEL_1.name)
+        openApp(Device.PIXEL_2.name)
                 .clickLoginMenuButton()
                 .clickSignUpTab()
                 .inputEmail(EMAIL)

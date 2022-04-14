@@ -19,7 +19,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class BaseTest {
 
-    private static final String url = "http://127.0.0.1:4723/wd/hub";
+    private static final String url = "http://127.0.0.1:4444/wd/hub";
     private static MobileDriver driver;
 
     public static MainPage openApp(String device) {

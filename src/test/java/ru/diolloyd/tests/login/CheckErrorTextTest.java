@@ -16,7 +16,7 @@ public class CheckErrorTextTest extends BaseTest {
     @Test
     @Description("Проверяем сообщение об ошибке при невалидной email")
     public void checkEmptyEmail() {
-        openApp(Device.PIXEL_1.name)
+        openApp(Device.PIXEL_2.name)
                 .clickLoginMenuButton()
                 .clickLoginButton()
                 .checkLoginErrorText(VALID_EMAIL_ADDRESS);

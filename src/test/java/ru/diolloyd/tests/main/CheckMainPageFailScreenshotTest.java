@@ -16,7 +16,7 @@ public class CheckMainPageFailScreenshotTest extends BaseTest {
     @Test
     @Description("Проверяем поведение теста при неудачной проверке UI главной страницы с помощью скриншота")
     public void checkFailMainPageScreenshot() {
-        openApp(Device.PIXEL_2.name)
+        openApp(Device.PIXEL_1.name)
                 .checkScreenshot(SCREENSHOT_NAME);
     }
 

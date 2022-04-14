@@ -16,7 +16,7 @@ public class CheckFormsPageScreenshotTest extends BaseTest {
     @Test
     @Description("Проверяем UI страницы 'Forms' с помощью скриншота")
     public void checkFormsPageScreenshot() {
-        openApp(Device.PIXEL_2.name)
+        openApp(Device.PIXEL_1.name)
                 .clickFormsMenuButton()
                 .checkScreenshot(SCREENSHOT_NAME);
     }
