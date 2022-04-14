@@ -12,4 +12,9 @@
             <package name="ru.diolloyd.tests.main"/>
         </packages>
     </test>
+    <test name="FormsPage">
+        <packages>
+            <package name="ru.diolloyd.tests.forms"/>
+        </packages>
+    </test>
 </suite>
