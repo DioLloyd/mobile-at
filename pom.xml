@@ -23,6 +23,22 @@
         <allure-testng.version>2.17.2</allure-testng.version>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>iOS</id>
+            <properties>
+                <platform>iOS</platform>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>Android</id>
+            <properties>
+                <platform>Android</platform>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
@@ -30,6 +46,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20</version>
                 <configuration>
+                    <systemPropertyVariables>
+                        <platform>${platform}</platform>
+                    </systemPropertyVariables>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
