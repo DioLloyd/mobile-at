@@ -4,7 +4,8 @@ import com.codeborne.selenide.Condition;
 
 import io.qameta.allure.Step;
 import lombok.SneakyThrows;
-import ru.diolloyd.locators.LoginPageLocators;
+import ru.diolloyd.locators.LocatorService;
+import ru.diolloyd.locators.interfaces.LoginPageLocators;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -61,7 +62,7 @@ public class LoginPage extends BottomNavigationBar {
 
 
     private LoginPageLocators locator() {
-        return new LoginPageLocators();
+        return LocatorService.LOGIN_PAGE_LOCATORS;
     }
 
 }

@@ -1,7 +1,8 @@
 package ru.diolloyd.pages;
 
 import io.qameta.allure.Step;
-import ru.diolloyd.locators.BottomNavigationBarLocators;
+import ru.diolloyd.locators.LocatorService;
+import ru.diolloyd.locators.interfaces.BottomNavigationBarLocators;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -21,7 +22,7 @@ public class BottomNavigationBar {
 
 
     private BottomNavigationBarLocators locator() {
-        return new BottomNavigationBarLocators();
+        return LocatorService.BOTTOM_NAVIGATION_BAR_LOCATORS;
     }
 
 }

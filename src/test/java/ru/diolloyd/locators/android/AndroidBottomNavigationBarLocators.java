@@ -1,10 +1,11 @@
-package ru.diolloyd.locators;
+package ru.diolloyd.locators.android;
 
 import org.openqa.selenium.By;
 
 import io.appium.java_client.MobileBy;
+import ru.diolloyd.locators.interfaces.BottomNavigationBarLocators;
 
-public class BottomNavigationBarLocators {
+public class AndroidBottomNavigationBarLocators implements BottomNavigationBarLocators {
 
     public By loginButton() {
         return MobileBy.AccessibilityId("Login");

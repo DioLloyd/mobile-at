@@ -1,10 +1,11 @@
-package ru.diolloyd.locators;
+package ru.diolloyd.locators.android;
 
 import org.openqa.selenium.By;
 
 import io.appium.java_client.MobileBy;
+import ru.diolloyd.locators.interfaces.FormsPageLocators;
 
-public class FormsPageLocators {
+public class AndroidFormsPageLocators implements FormsPageLocators {
 
     public By formsScreen() {
         return MobileBy.AccessibilityId("Forms-screen");

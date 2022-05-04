@@ -3,7 +3,8 @@ package ru.diolloyd.pages;
 import java.io.File;
 
 import io.qameta.allure.Step;
-import ru.diolloyd.locators.MainPageLocators;
+import ru.diolloyd.locators.LocatorService;
+import ru.diolloyd.locators.interfaces.MainPageLocators;
 
 import static com.codeborne.selenide.Selenide.$;
 import static ru.diolloyd.utils.ScreenshotComparison.compare;
@@ -20,7 +21,7 @@ public class MainPage extends BottomNavigationBar {
 
 
     private MainPageLocators locator() {
-        return new MainPageLocators();
+        return LocatorService.MAIN_PAGE_LOCATORS;
     }
 
 }

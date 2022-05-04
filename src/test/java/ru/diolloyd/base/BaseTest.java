@@ -11,8 +11,8 @@ import org.testng.annotations.AfterClass;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileDriver;
-import io.appium.java_client.android.AndroidDriver;
 import ru.diolloyd.pages.MainPage;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -20,11 +20,10 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class BaseTest {
 
     private static final String url = "http://127.0.0.1:4723/wd/hub";
-    private static MobileDriver driver;
 
     public static MainPage openApp() {
         try {
-            WebDriver driver = getAndroidDriver();
+            WebDriver driver = getAppiumDriver();
             WebDriverRunner.setWebDriver(driver);
 
         } catch (MalformedURLException e) {
@@ -34,19 +33,34 @@ public class BaseTest {
         return new MainPage();
     }
 
-    public static WebDriver getAndroidDriver() throws MalformedURLException{
+    public static WebDriver getAppiumDriver() throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("appium:deviceName", "Pixel");
-        capabilities.setCapability("appium:udid", "emulator-5554");
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("appium:platformVersion", "11");
-        capabilities.setCapability("appium:noReset", true);
-        capabilities.setCapability("appium:automationName", "UIAutomator2");
-        capabilities.setCapability("appium:app", System.getenv("Android-NativeDemoApp"));
+
+        switch (System.getProperty("platform")) {
+            case "Android":
+                capabilities.setCapability("appium:deviceName", "Pixel");
+                capabilities.setCapability("appium:udid", "emulator-5554");
+                capabilities.setCapability("platformName", "Android");
+                capabilities.setCapability("appium:platformVersion", "11");
+                capabilities.setCapability("appium:noReset", true);
+                capabilities.setCapability("appium:automationName", "UIAutomator2");
+                capabilities.setCapability("appium:app", System.getenv("Android-NativeDemoApp"));
+                break;
+            case "iOS": {
+                // Примерные настройки для iOS. Должны быть такого вида.
+                capabilities.setCapability("platformName", "iOS");
+                capabilities.setCapability("deviceName", "iPhone");
+                capabilities.setCapability("platformVersion", "15");
+                capabilities.setCapability("udid", "2E20F3A4-ACC1-4799-A4F5-83358E56AB2E");
+                capabilities.setCapability("automationName", "XCUITest");
+                capabilities.setCapability("app", "ПУТЬ_ДО_ПРИЛОЖЕНИЯ");
+                break;
+            }
+        }
 
         Configuration.reportsFolder = "screenshots/actual";
 
-        driver = new AndroidDriver(new URL(url), capabilities);
+        MobileDriver driver = new AppiumDriver(new URL(url), capabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
     }

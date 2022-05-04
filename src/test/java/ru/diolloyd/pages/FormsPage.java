@@ -5,7 +5,8 @@ import java.io.File;
 import com.codeborne.selenide.Condition;
 
 import io.qameta.allure.Step;
-import ru.diolloyd.locators.FormsPageLocators;
+import ru.diolloyd.locators.LocatorService;
+import ru.diolloyd.locators.interfaces.FormsPageLocators;
 
 import static com.codeborne.selenide.Selenide.$;
 import static ru.diolloyd.utils.ScreenshotComparison.compare;
@@ -33,7 +34,7 @@ public class FormsPage {
 
 
     private FormsPageLocators locator() {
-        return new FormsPageLocators();
+        return LocatorService.FORMS_PAGE_LOCATORS;
     }
 
 }
