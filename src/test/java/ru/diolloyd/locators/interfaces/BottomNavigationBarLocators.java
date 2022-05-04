@@ -8,4 +8,6 @@ public interface BottomNavigationBarLocators {
 
     By formsButton();
 
+    By swipeButton();
+
 }

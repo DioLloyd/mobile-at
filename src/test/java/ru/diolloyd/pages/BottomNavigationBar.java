@@ -20,6 +20,12 @@ public class BottomNavigationBar {
         return new FormsPage();
     }
 
+    @Step("Кликаем по кнопке Swipe в меню навигации и переходим на страницу 'Form components'")
+    public SwipePage clickSwipeMenuButton() {
+        $(locator().swipeButton()).click();
+        return new SwipePage();
+    }
+
 
     private BottomNavigationBarLocators locator() {
         return LocatorService.BOTTOM_NAVIGATION_BAR_LOCATORS;

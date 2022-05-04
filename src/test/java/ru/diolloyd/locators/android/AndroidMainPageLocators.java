@@ -7,6 +7,7 @@ import ru.diolloyd.locators.interfaces.MainPageLocators;
 
 public class AndroidMainPageLocators implements MainPageLocators {
 
+    @Override
     public By homeScreen() {
         return MobileBy.AccessibilityId("Home-screen");
     }
